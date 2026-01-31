@@ -1,0 +1,30 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install dependencies
+RUN apk add --no-cache git python3 make g++
+
+# Copy package files
+COPY package*.json ./
+
+# Install npm dependencies
+RUN npm install
+
+# Copy hardhat configuration and contracts
+COPY hardhat.config.js ./
+COPY contracts/ ./contracts/
+COPY scripts/ ./scripts/
+
+# Compile contracts
+RUN npx hardhat compile
+
+# Expose blockchain port
+EXPOSE 8545
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8545 || exit 1
+
+# Start hardhat node
+CMD ["npx", "hardhat", "node", "--hostname", "0.0.0.0"]

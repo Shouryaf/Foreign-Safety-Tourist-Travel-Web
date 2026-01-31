@@ -1,0 +1,112 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: tourist-safety-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: tourist-safety
+    volumes:
+      - mongodb_data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - tourist-safety-network
+
+  # Hardhat Blockchain Network
+  blockchain:
+    build:
+      context: .
+      dockerfile: Dockerfile.blockchain
+    container_name: tourist-safety-blockchain
+    restart: unless-stopped
+    ports:
+      - "8545:8545"
+    volumes:
+      - ./contracts:/app/contracts
+      - ./scripts:/app/scripts
+      - ./hardhat.config.js:/app/hardhat.config.js
+      - ./package.json:/app/package.json
+      - blockchain_data:/app/cache
+    networks:
+      - tourist-safety-network
+    command: npx hardhat node --hostname 0.0.0.0
+
+  # Backend API Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tourist-safety-backend
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      MONGODB_URI: mongodb://admin:password123@mongodb:27017/tourist-safety?authSource=admin
+      JWT_SECRET: your-super-secret-jwt-key-change-in-production
+      RPC_URL: http://blockchain:8545
+      PRIVATE_KEY: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+      CONTRACT_ADDRESS: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+      PORT: 3001
+      AI_SERVICE_URL: http://ai-service:8000
+    depends_on:
+      - mongodb
+      - blockchain
+    networks:
+      - tourist-safety-network
+    volumes:
+      - ./backend:/app
+    command: python main.py
+
+  # AI Microservice
+  ai-service:
+    build:
+      context: ./ai-service
+      dockerfile: Dockerfile
+    container_name: tourist-safety-ai
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      BACKEND_URL: http://backend:3001
+    networks:
+      - tourist-safety-network
+    volumes:
+      - ./ai-service:/app
+    command: python app.py
+
+  # Frontend (for development)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: tourist-safety-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:3001
+      VITE_AI_SERVICE_URL: http://localhost:8000
+      VITE_RPC_URL: http://localhost:8545
+    depends_on:
+      - backend
+      - ai-service
+    networks:
+      - tourist-safety-network
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev -- --host 0.0.0.0
+
+volumes:
+  mongodb_data:
+  blockchain_data:
+
+networks:
+  tourist-safety-network:
+    driver: bridge
